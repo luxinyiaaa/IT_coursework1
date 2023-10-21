@@ -200,7 +200,7 @@ The test6 function calls the render_template function, which renders the templat
 When a user accesses the URL **http://127.0.0.1:5000/test6_static//**, the Flask application will invoke the test6 function and return the rendered template content to the user's browser.
 ![test6_static.html](img/test6_static.html.png)
 
-`test6_static.html`
+#### **test6_static.html**
 ```html
     <!DOCTYPE html>
     <html lang="en">
@@ -257,6 +257,7 @@ In Flask, you can use the Jinja2 template engine to control the rendering logic 
 
 Examples of conditional and loop statements:
 
+#### **control.html**
 ```html
     <!DOCTYPE html>
     <html lang="en">
