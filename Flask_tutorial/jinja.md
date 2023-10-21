@@ -129,6 +129,19 @@ If the programmer want to use the variables of the template, `{{the name of vari
 
 ### ***filter***
 Variables can be modified through "filters", which can be understood as built-in functions and string handling functions in jinja2.
+#### **app .py**
+```python
+    @app.route('/')
+    def index():
+        # Sample data
+        my_string = "hELLo WorLD"
+        my_list = ['apple', 'banana', 'cherry']
+        my_variable = None
+        # Render templates and pass data and filters
+        return render_template('template.html', my_string=my_string, my_list=my_list, my_variable=my_variable)
+```
+The render_template function in python code renders the template file template.html with the supplied data, and the variable name in template.html corresponds to the variable name passed in the first piece of code. Thus, when the Flask application runs, it populates the template in template.html based on the data passed in the render_template function, and finally generates an HTML page containing this data.
+
 #### **template.html**
 Need to use pipes after variables (|) Splitting, multiple filters can be called in chains, and the output of the previous filter is used as the input of the latter filter.
 
@@ -151,7 +164,6 @@ Need to use pipes after variables (|) Splitting, multiple filters can be called 
     </body>
     </html>
 ```
-![template.html](img/filter.png)
 ![Original String](img/Original.png)
 - In this part, five filters are designed.
 
@@ -168,19 +180,7 @@ Need to use pipes after variables (|) Splitting, multiple filters can be called 
 
 5. `{{ my_list|join(', ') }}`: This filter joins the elements in the list my_list with commas and spaces to form a single string.
 ![Joined List](img/JoinedList.png)
-
-#### **app .py**
-```python
-    @app.route('/')
-    def index():
-        # Sample data
-        my_string = "hELLo WorLD"
-        my_list = ['apple', 'banana', 'cherry']
-        my_variable = None
-        # Render templates and pass data and filters
-        return render_template('template.html', my_string=my_string, my_list=my_list, my_variable=my_variable)
-```
-The render_template function in python code renders the template file template.html with the supplied data, and the variable name in template.html corresponds to the variable name passed in the first piece of code. Thus, when the Flask application runs, it populates the template in template.html based on the data passed in the render_template function, and finally generates an HTML page containing this data.
+![template.html](img/filter.png)
 
 
 ### ***static***
